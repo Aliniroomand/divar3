@@ -51,5 +51,3 @@ export default checkOtpForm;
 
 
 
-
-// قسمت 351 ایجاد روت ها رو ببین
