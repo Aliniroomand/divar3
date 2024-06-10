@@ -5,7 +5,7 @@ const SendOtpForm = ({mobileNumber,setMobileNumber,setStep}) => {
 
     const [errorForInput,setErrorForInput]=useState<boolean>(false);
 
-    const submitHandler =async  (e) =>{
+    const submitHandler =async (e) =>{
         e.preventDefault();
         const mobileNumberRegex = /^09[0-9]{9}$/;
         if(!mobileNumberRegex.test(mobileNumber)){
@@ -14,7 +14,10 @@ const SendOtpForm = ({mobileNumber,setMobileNumber,setStep}) => {
             setErrorForInput(false);
             const {response,error}= await sendOtp(mobileNumber); 
             console.log({response,error});
+            if(response){setStep(2)}
+            if(error){console.log(error.response.data.message);}
         }
+
 
     }
     return (
